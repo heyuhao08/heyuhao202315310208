@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="echarts.js"></script>
+</head>
+<body>
+    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script>
+        //正常节点的获取
+        var chardom = document.getElementById('main')
+        //转换成为echarts的对象节点
+        var mychart = echarts.init(chardom);
+        //数据的配置
+        var option
+        option = {
+            color:['blue'],
+            xAxis:{
+                type:'category',
+                data:['90分以上','80-89分','70-79分','60-69分','60分以下']
+            },
+            yAxis:{
+                
+                type:'value'
+            },
+            title:{
+                text:'班级月考成绩分布',
+                left:'center',
+                roseType: 'angle',
+            },
+            series:[
+                {
+                    name:'人数',
+                    type:'bar',
+                    data:[5,12,18,10,5],
+                    type:'bar'
+                }
+            ],
+            legend:{
+                data:['人数']
+            },
+            label:{
+        show:true,
+        position:'top',
+        },
+        series: [
+     {
+       type: 'bar',
+       data: [
+         { value: 5, itemStyle: { color: 'red' } },
+         { value: 12, itemStyle: { color: 'blue' } },
+         { value: 18, itemStyle: { color: 'green' } },
+         { value: 10, itemStyle: { color: 'black' } },
+         { value: 5, itemStyle: { color: 'Violet' } },
+       ],
+     }
+   ],
+        };
+        //数据和节点进行结合
+        option&&mychart.setOption(option)
+    </script>
+</body>
+</html>
